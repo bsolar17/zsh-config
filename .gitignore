@@ -1,2 +1,3 @@
-/.zsh_sessions/
-/.zsh_links/
+/.zplugins.zsh
+/.zshenv.d/*.local.zsh
+/.zshrc.d/*.local.zsh
