@@ -1,3 +1,5 @@
+${ZSH_CUSTOM}/.plugins/homebrew
+${ZSH_CUSTOM}/.plugins/tmux
 mafredri/zsh-async
 mattmc3/ez-compinit
 zsh-users/zsh-completions kind:fpath path:src
@@ -5,3 +7,12 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 woefe/git-prompt.zsh
 ohmyzsh/ohmyzsh path:plugins/nvm kind:defer
+${ZSH_CUSTOM}/.plugins/alias
+${ZSH_CUSTOM}/.plugins/autocompletion
+${ZSH_CUSTOM}/.plugins/colors
+${ZSH_CUSTOM}/.plugins/history
+${ZSH_CUSTOM}/.plugins/keybinds
+${ZSH_CUSTOM}/.plugins/prompt
+${ZSH_CUSTOM}/.plugins/syntax_highlighting
+${ZSH_CUSTOM}/.plugins/sdkman kind:defer
+${ZSH_CUSTOM}/.plugins/remove_path_duplicates

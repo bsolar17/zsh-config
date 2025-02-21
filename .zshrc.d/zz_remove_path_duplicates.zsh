@@ -1,1 +1,0 @@
-typeset -gU path fpath
