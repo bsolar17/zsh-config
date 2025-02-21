@@ -4,3 +4,4 @@ zsh-users/zsh-completions kind:fpath path:src
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 woefe/git-prompt.zsh
+ohmyzsh/ohmyzsh path:plugins/nvm kind:defer
