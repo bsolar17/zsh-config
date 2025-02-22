@@ -30,6 +30,7 @@ fi
 export EDITOR=vim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export ZSH_TMUX_AUTOSTART=true
 
 # Source additional zshenv files
 for zsh_file in ${ZDOTDIR}/.zshenv.d/*.zsh(.N); source $zsh_file

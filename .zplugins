@@ -1,7 +1,7 @@
 ${ZSH_CUSTOM}/.plugins/homebrew
-${ZSH_CUSTOM}/.plugins/tmux
-mafredri/zsh-async
 mattmc3/ez-compinit
+ohmyzsh/ohmyzsh path:plugins/tmux
+mafredri/zsh-async
 zsh-users/zsh-completions kind:fpath path:src
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
