@@ -1,4 +1,5 @@
 ${ZSH_CUSTOM}/.plugins/homebrew
+${ZSH_CUSTOM}/.plugins/rust
 mattmc3/ez-compinit
 ohmyzsh/ohmyzsh path:plugins/tmux
 mafredri/zsh-async
