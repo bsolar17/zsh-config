@@ -9,7 +9,7 @@ zsh-users/zsh-syntax-highlighting
 woefe/git-prompt.zsh
 jeffreytse/zsh-vi-mode
 ohmyzsh/ohmyzsh path:plugins/nvm kind:defer
-${ZSH_CUSTOM}/.plugins/alias
+${ZSH_CUSTOM}/.plugins/commands
 ${ZSH_CUSTOM}/.plugins/autocompletion
 ${ZSH_CUSTOM}/.plugins/colors
 ${ZSH_CUSTOM}/.plugins/history
