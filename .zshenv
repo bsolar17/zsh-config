@@ -21,10 +21,6 @@ export ZSH_DATA_HOME=${XDG_DATA_HOME}/zsh
   done
 } XDG_{CONFIG,CACHE,DATA,STATE}_HOME XDG_{RUNTIME,PROJECTS}_DIR ZSH_CACHE_HOME ZSH_DATA_HOME
 
-if [[ -s "/opt/bin" ]]; then
-    path+=("/opt/bin")
-fi
-
 # Disable OSX sessions
 if [[ "$OSTYPE" == darwin* ]]; then
   export SHELL_SESSIONS_DISABLE=1
