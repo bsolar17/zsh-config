@@ -35,6 +35,7 @@ export EDITOR=vim
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOCONNECT=false
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Source additional zshenv files
