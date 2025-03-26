@@ -2,6 +2,7 @@ ${ZSH_CUSTOM}/.plugins/homebrew
 ${ZSH_CUSTOM}/.plugins/rust
 mattmc3/ez-compinit
 ohmyzsh/ohmyzsh path:plugins/tmux
+ohmyzsh/ohmyzsh path:plugins/fzf
 mafredri/zsh-async
 zsh-users/zsh-completions kind:fpath path:src
 zsh-users/zsh-autosuggestions
