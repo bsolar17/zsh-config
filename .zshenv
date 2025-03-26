@@ -32,6 +32,7 @@ export LC_ALL="en_US.UTF-8"
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOCONNECT=false
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZVM_INIT_MODE=sourcing
 
 # Source additional zshenv files
 for zsh_file in ${ZDOTDIR}/.zshenv.d/*.zsh(.N); source $zsh_file
