@@ -1,5 +1,6 @@
 ${ZSH_CUSTOM}/.plugins/homebrew
 ${ZSH_CUSTOM}/.plugins/rust
+${ZSH_CUSTOM}/.plugins/autocompletion
 mattmc3/ez-compinit
 ohmyzsh/ohmyzsh path:plugins/tmux
 mafredri/zsh-async
@@ -11,7 +12,6 @@ jeffreytse/zsh-vi-mode
 ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/nvm kind:defer
 ${ZSH_CUSTOM}/.plugins/commands
-${ZSH_CUSTOM}/.plugins/autocompletion
 ${ZSH_CUSTOM}/.plugins/colors
 ${ZSH_CUSTOM}/.plugins/history
 ${ZSH_CUSTOM}/.plugins/keybinds
