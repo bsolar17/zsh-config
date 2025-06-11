@@ -29,7 +29,7 @@ fi
 # Exports
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOSTART=${ZSH_TMUX_AUTOSTART:-true}
 export ZSH_TMUX_AUTOCONNECT=false
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZVM_INIT_MODE=sourcing
