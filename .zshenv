@@ -33,6 +33,7 @@ export ZSH_TMUX_AUTOSTART=${ZSH_TMUX_AUTOSTART:-true}
 export ZSH_TMUX_AUTOCONNECT=false
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export ZVM_INIT_MODE=sourcing
+export GOPATH=${XDG_DATA_HOME}/go
 
 # Source additional zshenv files
 for zsh_file in ${ZDOTDIR}/.zshenv.d/*.zsh(.N); source $zsh_file
