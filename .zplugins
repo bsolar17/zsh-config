@@ -1,5 +1,4 @@
 ${ZSH_CUSTOM}/.plugins/homebrew
-${ZSH_CUSTOM}/.plugins/rust
 ${ZSH_CUSTOM}/.plugins/autocompletion
 mattmc3/ez-compinit
 ohmyzsh/ohmyzsh path:plugins/tmux
@@ -10,13 +9,11 @@ zsh-users/zsh-syntax-highlighting
 woefe/git-prompt.zsh
 jeffreytse/zsh-vi-mode
 ohmyzsh/ohmyzsh path:plugins/fzf
-ohmyzsh/ohmyzsh path:plugins/nvm kind:defer
 ${ZSH_CUSTOM}/.plugins/commands
 ${ZSH_CUSTOM}/.plugins/colors
 ${ZSH_CUSTOM}/.plugins/history
 ${ZSH_CUSTOM}/.plugins/keybinds
 ${ZSH_CUSTOM}/.plugins/prompt
 ${ZSH_CUSTOM}/.plugins/syntax_highlighting
-${ZSH_CUSTOM}/.plugins/opencode
-${ZSH_CUSTOM}/.plugins/sdkman kind:defer
+${ZSH_CUSTOM}/.plugins/mise kind:defer
 ${ZSH_CUSTOM}/.plugins/remove_path_duplicates
