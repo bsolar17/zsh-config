@@ -1,5 +1,6 @@
 ${ZSH_CUSTOM}/.plugins/homebrew
 ${ZSH_CUSTOM}/.plugins/mise
+${ZSH_CUSTOM}/.plugins/local_bin
 ${ZSH_CUSTOM}/.plugins/autocompletion
 mattmc3/ez-compinit
 ohmyzsh/ohmyzsh path:plugins/tmux
