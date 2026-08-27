@@ -12,6 +12,7 @@ woefe/git-prompt.zsh
 jeffreytse/zsh-vi-mode
 ohmyzsh/ohmyzsh path:plugins/fzf
 ${ZSH_CUSTOM}/.plugins/commands
+${ZSH_CUSTOM}/.plugins/upgrade_all
 ${ZSH_CUSTOM}/.plugins/colors
 ${ZSH_CUSTOM}/.plugins/history
 ${ZSH_CUSTOM}/.plugins/keybinds
