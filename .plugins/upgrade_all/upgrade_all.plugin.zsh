@@ -12,6 +12,17 @@ upgrade-all() {
         eval $run || failed+=(${3:-$cmd})
     }
 
+    # Fast-forward a config repo. Skips silently when the directory isn't a
+    # checkout, so a partially set-up machine doesn't report a failure.
+    _upgrade-all-git() {
+        local dir=$1
+        if [[ ! -d $dir/.git ]]; then
+            print -P "%F{yellow}    not a git checkout, skipping%f"
+            return 0
+        fi
+        git -C $dir pull --ff-only
+    }
+
     # Refresh the Mason registry, then update every installed package that has a
     # newer version. Asks the registry what's installed rather than relying on a
     # declared tool list, so nothing has to be kept in sync by hand.
@@ -66,6 +77,9 @@ upgrade-all() {
         ' +qa
     }
 
+    _upgrade-all-step git '_upgrade-all-git ${ZDOTDIR:-$HOME/.config/zsh}' 'config: zsh'
+    _upgrade-all-step git '_upgrade-all-git $HOME/.config/tmux' 'config: tmux'
+    _upgrade-all-step git '_upgrade-all-git $HOME/.config/nvim' 'config: nvim'
     _upgrade-all-step apt 'sudo apt update && sudo apt dist-upgrade'
     _upgrade-all-step brew 'brew upgrade'
     _upgrade-all-step mise 'mise upgrade --bump'
@@ -74,7 +88,7 @@ upgrade-all() {
     _upgrade-all-step nvim 'nvim --headless "+Lazy! sync" +qa' 'nvim: lazy sync'
     _upgrade-all-step nvim '_upgrade-all-mason' 'nvim: mason update'
 
-    unfunction _upgrade-all-step _upgrade-all-mason
+    unfunction _upgrade-all-step _upgrade-all-git _upgrade-all-mason
 
     if (( $#failed )); then
         print -P "%F{red}Failed:%f $failed"
