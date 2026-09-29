@@ -18,4 +18,3 @@ ${ZSH_CUSTOM}/.plugins/history
 ${ZSH_CUSTOM}/.plugins/keybinds
 ${ZSH_CUSTOM}/.plugins/prompt
 ${ZSH_CUSTOM}/.plugins/syntax_highlighting
-${ZSH_CUSTOM}/.plugins/remove_path_duplicates

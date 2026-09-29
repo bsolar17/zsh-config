@@ -39,4 +39,5 @@ export GOPATH=${XDG_DATA_HOME}/go
 for zsh_file in ${ZDOTDIR}/.zshenv.d/*.zsh(.N); source $zsh_file
 unset zsh_file
 
+# Deduplicate path and fpath; keep last, PATH= string assignments bypass -U
 typeset -gU path fpath
