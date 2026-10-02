@@ -3,6 +3,7 @@ ${ZSH_CUSTOM}/.plugins/mise
 ${ZSH_CUSTOM}/.plugins/local_bin
 ${ZSH_CUSTOM}/.plugins/autocompletion
 mattmc3/ez-compinit
+${ZSH_CUSTOM}/.plugins/history
 ohmyzsh/ohmyzsh path:plugins/tmux
 mafredri/zsh-async
 zsh-users/zsh-completions kind:fpath path:src
@@ -14,7 +15,6 @@ ohmyzsh/ohmyzsh path:plugins/fzf
 ${ZSH_CUSTOM}/.plugins/commands
 ${ZSH_CUSTOM}/.plugins/upgrade_all
 ${ZSH_CUSTOM}/.plugins/colors
-${ZSH_CUSTOM}/.plugins/history
 ${ZSH_CUSTOM}/.plugins/keybinds
 ${ZSH_CUSTOM}/.plugins/prompt
 ${ZSH_CUSTOM}/.plugins/syntax_highlighting
