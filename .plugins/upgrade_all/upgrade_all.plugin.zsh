@@ -77,6 +77,16 @@ upgrade-all() {
         ' +qa
     }
 
+    _upgrade-all-claude() {
+        claude plugin marketplace update || return 1
+        local id rc=0
+        for id in ${(f)"$(claude plugin list --json | jq -r '.[] | select(.scope == "user") | .id')"}; do
+            print -P "    $id"
+            claude plugin update $id || rc=1
+        done
+        return $rc
+    }
+
     _upgrade-all-step git '_upgrade-all-git ${ZDOTDIR:-$HOME/.config/zsh}' 'config: zsh'
     _upgrade-all-step git '_upgrade-all-git $HOME/.config/tmux' 'config: tmux'
     _upgrade-all-step git '_upgrade-all-git $HOME/.config/nvim' 'config: nvim'
@@ -84,11 +94,12 @@ upgrade-all() {
     _upgrade-all-step brew 'brew upgrade'
     _upgrade-all-step mise 'mise upgrade --bump'
     _upgrade-all-step npm 'npm update -g'
+    _upgrade-all-step claude '_upgrade-all-claude' 'claude: plugins'
     _upgrade-all-step antidote 'antidote update'
     _upgrade-all-step nvim 'nvim --headless "+Lazy! sync" +qa' 'nvim: lazy sync'
     _upgrade-all-step nvim '_upgrade-all-mason' 'nvim: mason update'
 
-    unfunction _upgrade-all-step _upgrade-all-git _upgrade-all-mason
+    unfunction _upgrade-all-step _upgrade-all-git _upgrade-all-mason _upgrade-all-claude
 
     if (( $#failed )); then
         print -P "%F{red}Failed:%f $failed"
