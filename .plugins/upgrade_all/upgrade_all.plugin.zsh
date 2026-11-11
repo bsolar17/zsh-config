@@ -87,6 +87,37 @@ upgrade-all() {
         return $rc
     }
 
+    # The marketplace update overwrites the Lombok javaagent patch for jdtls-lsp
+    # (anthropics/claude-plugins-official#1000), so reapply it afterwards.
+    _upgrade-all-lombok() {
+        local tool
+        for tool in jq python3; do
+            if ! command -v $tool >/dev/null 2>&1; then
+                print -P "%F{yellow}    $tool not installed, skipping%f"
+                return 0
+            fi
+        done
+
+        local plugins root out
+        plugins=$(claude plugin list --json) || return 1
+        if ! jq -e 'any(.[]; .id == "jdtls-lsp@claude-plugins-official")' <<<$plugins >/dev/null; then
+            print -P "%F{yellow}    jdtls-lsp not installed, skipping%f"
+            return 0
+        fi
+        root=$(jq -r '.[] | select(.id | startswith("jdtls-lombok-fix@")) | .installPath' <<<$plugins)
+        if [[ -z $root ]]; then
+            print -P "%F{yellow}    jdtls-lombok-fix not installed, skipping%f"
+            return 0
+        fi
+
+        out=$(python3 -I $root/skills/jdtls-lombok-fix/scripts/apply_patch.py)
+        case $out in
+            already-patched|patched:*|marketplace-missing) print "    $out" ;;
+            no-lombok-jar) print -P "%F{yellow}    no Lombok jar in ~/.m2 yet, rerun after a Maven build%f" ;;
+            *) print "    $out"; return 1 ;;
+        esac
+    }
+
     _upgrade-all-step git '_upgrade-all-git ${ZDOTDIR:-$HOME/.config/zsh}' 'config: zsh'
     _upgrade-all-step git '_upgrade-all-git $HOME/.config/tmux' 'config: tmux'
     _upgrade-all-step git '_upgrade-all-git $HOME/.config/nvim' 'config: nvim'
@@ -95,11 +126,12 @@ upgrade-all() {
     _upgrade-all-step mise 'mise upgrade --bump'
     _upgrade-all-step npm 'npm update -g'
     _upgrade-all-step claude '_upgrade-all-claude' 'claude: plugins'
+    _upgrade-all-step claude '_upgrade-all-lombok' 'claude: jdtls lombok patch'
     _upgrade-all-step antidote 'antidote update'
     _upgrade-all-step nvim 'nvim --headless "+Lazy! sync" +qa' 'nvim: lazy sync'
     _upgrade-all-step nvim '_upgrade-all-mason' 'nvim: mason update'
 
-    unfunction _upgrade-all-step _upgrade-all-git _upgrade-all-mason _upgrade-all-claude
+    unfunction _upgrade-all-step _upgrade-all-git _upgrade-all-mason _upgrade-all-claude _upgrade-all-lombok
 
     if (( $#failed )); then
         print -P "%F{red}Failed:%f $failed"
