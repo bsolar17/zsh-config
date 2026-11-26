@@ -80,7 +80,7 @@ upgrade-all() {
     _upgrade-all-claude() {
         claude plugin marketplace update || return 1
         local id rc=0
-        for id in ${(f)"$(claude plugin list --json | jq -r '.[] | select(.scope == "user") | .id')"}; do
+        for id in ${(f)"$(claude plugin list --json | jq -r '.[] | select(.scope == "user" and (.id | endswith("@builtin") | not)) | .id')"}; do
             print -P "    $id"
             claude plugin update $id || rc=1
         done
